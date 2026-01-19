@@ -1,0 +1,28 @@
+Package: iProPath
+Title: Integrative Proteogenomic Mediation Path Analysis
+Version: 0.1.0
+Authors@R: 
+    person(given = "Yuqing",
+           family = "Shang",
+           role = c("aut", "cre"),
+           email = "e0729923@u.nus.edu")
+Description: 
+    Tools for integrative analysis of genomic alterations and 
+    post-translational modification data using latent variable models.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    dplyr,
+    foreach,
+    doParallel,
+    ACAT,
+    qvalue,
+    locfdr,
+    magrittr,
+    rlang
+Suggests:
+    openxlsx,
+    testthat (>= 3.0.0)

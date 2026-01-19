@@ -1,0 +1,6 @@
+======== MDACT started at 2026-01-19 16:06:01 ========
+
+      Running in Parallel Mode Using 6 cores
+Data Size: 33500
+Total Batches: 60
+Batch Size: 558.33
