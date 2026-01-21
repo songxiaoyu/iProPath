@@ -41,15 +41,34 @@ get_Y_transRegDat <- function(x_df_list, fixed_cov, y_covdf_list, mediator_list,
                                 x_covs_value <- dropindex_and_transpose(x_covs)
 
                                 m = extract_data_g(mediator_list, match_key_g)
-                                m_value =  dropindex_and_transpose(m)
-                                colnames(m_value)<-paste("Mediator",rownames(m),m$matching_key,sep="_")
+                                m_value <- dropindex_and_transpose(
+                                  m,
+                                  name_style = "mediator_row_key",
+                                  mediator_tag = "Mediator",
+                                  sep = "_"
+                                )
 
-                                y_covs = extract_data_g(y_covdf_list, match_key_g)
-                                y_covs_value <- dropindex_and_transpose(y_covs)
-                                colnames(y_covs_value)<-paste0("y_",colnames(y_covs_value))
+                                y_covs <- extract_data_g(y_covdf_list, match_key_g)
+                                y_covs_value <- dropindex_and_transpose(
+                                  y_covs,
+                                  prefix = "y_",
+                                  name_style = "prefix_col"
+                                )
 
-                                x_reg_df <- data.frame(x_interested, x_covs_value, fixed_cov, m_value,y_covs_value)
-                                colnames(x_reg_df)[1] <- x_name
+                                cols <- list(
+                                  x_interested = x_interested,
+                                  x_covs_value = x_covs_value,
+                                  fixed_cov    = fixed_cov,
+                                  m_value = m_value,
+                                  y_covs_value = y_covs_value
+                                )
+                                cols <- Filter(Negate(is.null), cols)
+
+                                x_reg_df <- do.call(
+                                  data.frame,
+                                  cols
+                                )
+                                colnames(x_reg_df)[1] = x_name
 
                                 # Excluding all cis-Y sites
                                 cis_Y_idx <- which(Y$matching_key==match_key_g)

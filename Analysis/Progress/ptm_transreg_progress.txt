@@ -1,0 +1,34 @@
+>> File 'Progress/ptm_transreg_progress.txt' has been created. Check this file for progress updates.
+Processing gene with mediator: idx4 4/10
+Processing gene with mediator: idx1 1/10
+Processing gene with mediator: idx2 2/10
+Processing gene with mediator: idx3 3/10
+Processing gene with mediator: idx5 5/10
+Processing gene with mediator: idx6 6/10
+Processing gene with mediator: idx7 7/10
+Processing gene with mediator: idx8 8/10
+Processing gene with mediator: idx9 9/10
+Processing gene with mediator: idx10 10/10
+>> File 'Progress/ptm_transreg_progress.txt' has been created. Check this file for progress updates.
+>> File 'Progress/ptm_transreg_progress.txt' has been created. Check this file for progress updates.
+Processing gene with mediator: idx3 3/10
+Processing gene with mediator: idx1 1/10
+Processing gene with mediator: idx2 2/10
+Processing gene with mediator: idx6 6/10
+Processing gene with mediator: idx5 5/10
+Processing gene with mediator: idx4 4/10
+Processing gene with mediator: idx7 7/10
+Processing gene with mediator: idx8 8/10
+Processing gene with mediator: idx9 9/10
+Processing gene with mediator: idx10 10/10
+>> File 'Progress/ptm_transreg_progress.txt' has been created. Check this file for progress updates.
+Processing gene with mediator: idx2 2/10
+Processing gene with mediator: idx4 4/10
+Processing gene with mediator: idx5 5/10
+Processing gene with mediator: idx1 1/10
+Processing gene with mediator: idx3 3/10
+Processing gene with mediator: idx6 6/10
+Processing gene with mediator: idx8 8/10
+Processing gene with mediator: idx7 7/10
+Processing gene with mediator: idx9 9/10
+Processing gene with mediator: idx10 10/10

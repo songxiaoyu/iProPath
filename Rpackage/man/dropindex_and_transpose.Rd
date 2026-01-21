@@ -4,13 +4,44 @@
 \alias{dropindex_and_transpose}
 \title{Drop index columns and transpose data frame}
 \usage{
-dropindex_and_transpose(df)
+dropindex_and_transpose(
+  df,
+  drop_cols = c("unique_index", "matching_key"),
+  prefix = NULL,
+  name_style = c("keep", "prefix_col", "mediator_row_key"),
+  mediator_tag = "Mediator",
+  sep = "_"
+)
 }
 \arguments{
-\item{df}{data frame}
+\item{df}{A data frame containing covariates or mediator values.
+Can be \code{NULL} or have zero rows.}
+
+\item{drop_cols}{Character vector of column names to be removed
+before transposition. Defaults to \code{c("unique_index", "matching_key")}.}
+
+\item{prefix}{Optional character string used as a prefix for column
+names when \code{name_style = "prefix_col"}.}
+
+\item{name_style}{Character string specifying how column names are generated
+after transposition. One of:
+\describe{
+\item{\code{"keep"}}{Keep default column identifiers (row indices).}
+\item{\code{"prefix_col"}}{Prefix column identifiers with \code{prefix}.}
+\item{\code{"mediator_row_key"}}{Construct names using
+\code{mediator_tag}, row names, and \code{matching_key}.}
+}}
+
+\item{mediator_tag}{Character string used when
+\code{name_style = "mediator_row_key"} to label mediator columns.}
+
+\item{sep}{Character string used to separate components in constructed
+column names.}
 }
 \value{
-transposed matrix
+A numeric matrix with transposed values and defensively
+constructed column names. If input is \code{NULL} or empty, a
+\code{0 x 0} matrix is returned.
 }
 \description{
 Drop index columns and transpose data frame

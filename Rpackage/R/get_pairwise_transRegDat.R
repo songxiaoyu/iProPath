@@ -33,13 +33,28 @@ get_pairwise_transRegDat <- function(x_df_list, fixed_cov, y_covdf_list, Y_list,
                                 x_covs =  extract_data_g(x_covs_df_list, match_key_g)
                                 x_covs_value <-dropindex_and_transpose(x_covs)
 
-                                y_covs = extract_data_g(y_covdf_list, match_key_g)
-                                y_covs_value <- dropindex_and_transpose(y_covs)
-                                colnames(y_covs_value)<-paste0("y_",colnames(y_covs_value))
+                                y_covs <- extract_data_g(y_covdf_list, match_key_g)
+                                y_covs_value <- dropindex_and_transpose(
+                                  y_covs,
+                                  prefix = "y_",
+                                  name_style = "prefix_col"
+                                )
 
-                                x_reg_df <- data.frame(x_interested, x_covs_value, fixed_cov, y_covs_value)
-                                colnames(x_reg_df)[1] <- x_name
+                                cols <- list(
+                                  x_interested = x_interested,
+                                  x_covs_value = x_covs_value,
+                                  fixed_cov    = fixed_cov,
+                                  y_covs_value = y_covs_value
+                                )
 
+                                cols <- Filter(Negate(is.null), cols)
+
+                                x_reg_df <- do.call(
+                                  data.frame,
+                                  cols
+                                )
+
+                                colnames(x_reg_df)[1] = x_name
                                 # Excluding all cis-Y sites
                                 cis_Y_idx <- which(Y$matching_key==match_key_g)
                                 if(length(cis_Y_idx)!=0){trans_Y <- Y[-cis_Y_idx, ]}else{trans_Y <-Y}

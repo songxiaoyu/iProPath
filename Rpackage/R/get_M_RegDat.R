@@ -41,7 +41,18 @@ get_M_RegDat = function(x_df_list, fixed_cov, mediator_list, x_name, num_cores){
            reg_p = c(); reg_beta = c(); param_sd= c()
            for (i in 1:ncol(m_value)) {
              m_i = m_value[,i]
-             x_reg_df = data.frame(x_interested, x_covs_value, fixed_cov)
+
+             cols <- list(
+               x_interested = x_interested,
+               x_covs_value = x_covs_value,
+               fixed_cov    = fixed_cov
+             )
+             cols <- Filter(Negate(is.null), cols)
+
+             x_reg_df <- do.call(
+               data.frame,
+               cols
+             )
              colnames(x_reg_df)[1] = x_name
 
              reg = summary(stats::lm(m_i ~ ., data = x_reg_df))

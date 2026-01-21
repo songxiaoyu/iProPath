@@ -1,0 +1,83 @@
+[1] "Filename: sample_data.RData.genetic_feature.ptm"
+
+Total rows: 1000  Total genes: 10  Total sites: 100 
+
+[1] "real_data.pi_df:"
+                  est              formula
+pi1.mx     0.71176393      M-X signal prop
+pi1.ym     0.10018462      Y-M signal prop
+pi01.mx_ym 0.02887682     (1-pi1.mx)pi1.ym
+pi10.mx_ym 0.64045613     pi1.mx(1-pi1.ym)
+pi00.mx_ym 0.25935925 (1-pi1.mx)(1-pi1.ym)
+pi.11.est  0.07130780      pi1.mx * pi1.ym
+[1] "ipropath.pi_df:"
+                 est       name               formula
+pi.m.1    0.71176393     pi1.mx                   M-X
+pi.y.1    0.10018462     pi1.ym                   Y-M
+pi.01.est 0.02887682 pi01.mx_ym     (1-pi1.mx)*pi1.ym
+pi.10.est 0.64045613 pi10.mx_ym     pi1.mx*(1-pi1.ym)
+pi.00.est 0.25935925 pi00.mx_ym (1-pi1.mx)*(1-pi1.ym)
+pi.11.est 0.07130780 pi11.mx_ym         pi1.mx*pi1.ym
+
+Number of Pairwise FWER <= 0.05: 8 
+Number of Pairwise BH <= 0.1: 17 
+Number of Pairwise BY <= 0.1: 11 
+Number of iProPath FWER <= 0.05: 11 
+Number of iProPath BH <= 0.1: 32 
+Number of iProPath BY <= 0.1: 14 
+
+[1] "Pairwise FWER <= 0.05 Hubs:"
+  X_gene_name n
+1        idx6 2
+2        idx7 2
+3        idx1 1
+4       idx10 1
+5        idx2 1
+6        idx8 1
+[1] "iProPath FWER <= 0.05 Hubs:"
+  X_gene_name n
+1        idx8 3
+2        idx2 2
+3        idx5 2
+4        idx7 2
+5        idx1 1
+6        idx6 1
+[1] "Pairwise BH <= 0.1 Hubs:"
+  X_gene_name n
+1        idx1 3
+2        idx8 3
+3       idx10 2
+4        idx2 2
+5        idx5 2
+6        idx6 2
+7        idx7 2
+8        idx3 1
+[1] "iProPath BH <= 0.1 Hubs:"
+  X_gene_name n
+1        idx8 7
+2        idx5 5
+3        idx7 5
+4       idx10 4
+5        idx6 4
+6        idx2 3
+7        idx1 2
+8        idx3 1
+9        idx9 1
+[1] "Pairwise BY <= 0.1 Hubs:"
+  X_gene_name n
+1        idx5 2
+2        idx6 2
+3        idx7 2
+4        idx8 2
+5        idx1 1
+6       idx10 1
+7        idx2 1
+[1] "iProPath BY <= 0.1 Hubs:"
+  X_gene_name n
+1        idx5 3
+2        idx8 3
+3       idx10 2
+4        idx2 2
+5        idx7 2
+6        idx1 1
+7        idx6 1

@@ -2,6 +2,7 @@
 
 export(assemble_ipropath_results)
 export(compute_pi_df)
+export(dropindex_and_transpose)
 export(estimate_ipropath_pi)
 export(get_M_RegDat)
 export(get_Y_transRegDat)
