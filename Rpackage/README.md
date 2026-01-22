@@ -10,6 +10,9 @@
 
 ``` r
 install.packages("iProPath_0.1.0.tar.gz", repos = NULL, type = "source")
+
+install.packages("devtools”)
+devtools::install_github("songxiaoyu/iProPath/Rpackage")
 ```
 
 ## Example
@@ -18,10 +21,8 @@ install.packages("iProPath_0.1.0.tar.gz", repos = NULL, type = "source")
 
 ``` r
 library(iProPath)
-file_name <- "melanoma_final_v1"
-num_cores <- 6
-y_name <- "trans_glyco"
-x_name <- "mutation"
+data("sample_data")
+args <- list("sample_data", "6", "ptm", "genetic_feature" )
 ```
 
 ### 2. Load input data
