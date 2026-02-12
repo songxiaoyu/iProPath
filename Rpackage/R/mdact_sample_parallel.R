@@ -108,7 +108,11 @@ mdact_sample_parallel <- function(p.M, p.M.uni, p.Y, pi1_MX, pi1_YM, numCores,y_
   if (!dir.exists("Progress")) dir.create("Progress")
 
   sinkfile <- paste0("Progress/", y_name, "_mdact_progress.txt")
-  on.exit(sink(), add = TRUE)
+  n0 <- sink.number()
+  sink(sinkfile, append = FALSE)
+  on.exit({
+    while (sink.number() > n0) sink()
+  }, add = TRUE)
 
   message(sprintf(
     ">> File '%s' has been created. Check this file for progress updates.",

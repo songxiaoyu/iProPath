@@ -1,25 +1,35 @@
+# Manually define arguments (fixed order)
+args <- list(
+  "sample_data",        # file_name
+  6,                    # num_cores
+  "ptm",                # y_name
+  "genetic_feature"    # x_name
+)
+file_name <- args[[1]]
+num_cores <- as.numeric(args[[2]])
+y_name <- args[[3]]
+x_name <- args[[4]]
+
 library(iProPath)
 data("sample_data")
+data=get(file_name)
 
-mediator_list = sample_data$mediator_list
-x_df_list = sample_data$x_df_list
-Y_list = sample_data$Y_list
-
-fixed_cov = NULL
-y_covdf_list = NULL
-# args <- list("melanoma_final_v1", "6", "trans_glyco", "mutation" )
-# Y_list$trans_glyco = Y_list$trans_glyco[sample(100),]
-
-args <- list("sample_data", "6", "ptm", "genetic_feature" )
-file_name <- unlist(args[1])
-num_cores <- as.numeric(args[2])
-y_name <- unlist(args[3])
-x_name <- unlist(args[4])
-
-
+x_df_list=data$x_df_list
+fixed_cov=data$fixed_cov
+mediator_list=data$mediator_list
+y_covdf_list=data$y_covdf_list
+Y_list = data$Y_list
+x_name = args[[4]]
+y_name =  args[[3]]
+num_cores = args[[2]]
+file_name = args[[1]]
 
 reg_res <- prepare_ipropath_regression(
-  x_df_list, fixed_cov, mediator_list, y_covdf_list, Y_list,
+  x_df_list,
+  fixed_cov,
+  mediator_list,
+  y_covdf_list,
+  Y_list,
   x_name = x_name,
   y_name = y_name,
   num_cores = num_cores,
@@ -55,3 +65,6 @@ write_ipropath_outputs(
   file_stub = file_stub,
   output_dir = "Results"
 )
+
+
+

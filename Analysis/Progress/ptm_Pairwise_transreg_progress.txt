@@ -1,10 +1,21 @@
 >> File 'Progress/ptm_Pairwise_transreg_progress.txt' has been created. Check this file for progress updates.
 Processing gene: idx1 1/10
+Processing gene: idx4 4/10
+Processing gene: idx5 5/10
+Processing gene: idx3 3/10
 Processing gene: idx2 2/10
 Processing gene: idx6 6/10
-Processing gene: idx3 3/10
-Processing gene: idx5 5/10
+Processing gene: idx7 7/10
+Processing gene: idx8 8/10
+Processing gene: idx9 9/10
+Processing gene: idx10 10/10
+>> File 'Progress/ptm_Pairwise_transreg_progress.txt' has been created. Check this file for progress updates.
 Processing gene: idx4 4/10
+Processing gene: idx6 6/10
+Processing gene: idx1 1/10
+Processing gene: idx3 3/10
+Processing gene: idx2 2/10
+Processing gene: idx5 5/10
 Processing gene: idx7 7/10
 Processing gene: idx8 8/10
 Processing gene: idx9 9/10

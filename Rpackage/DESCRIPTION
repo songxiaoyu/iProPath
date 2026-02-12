@@ -1,6 +1,6 @@
 Package: iProPath
 Title: Integrative Proteogenomic Mediation Path Analysis
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: 
     person(given = "Yuqing",
            family = "Shang",

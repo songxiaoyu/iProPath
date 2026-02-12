@@ -16,14 +16,10 @@ write_ipropath_outputs <- function(
 ) {
   if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
-  openxlsx::write.xlsx(
-    list(
-      "iProPath" = res_all,
-      "Real_data.Nonnull Estimation" = real_data_pi_df,
-      "iProPath.Nonnull Estimation" = ipropath_pi_df
-    ),
-    file = file.path(output_dir, sprintf("%s.iProPath.xlsx", file_stub)),
-    rowNames = FALSE
+  utils::write.csv(
+    res_all,
+    file = file.path(output_dir, sprintf("%s.iProPath.csv", file_stub)),
+    row.names = FALSE
   )
 
   summarize_ipropath_results(

@@ -17,8 +17,11 @@ summarize_ipropath_results <- function(res_all, real_data.pi_df=NULL, ipropath.p
   # Define output file path
   output_file <- sprintf("%s/%s.txt", output_dir, file_name)
   # Redirect output to the file
+  n0 <- sink.number()
   sink(output_file, append = FALSE)
-  on.exit({if (sink.number() > 0) sink()})
+  on.exit({
+    while (sink.number() > n0) sink()
+  }, add = TRUE)
   print(sprintf("Filename: %s",file_name))
   cat("\n")
   # Summary statistics

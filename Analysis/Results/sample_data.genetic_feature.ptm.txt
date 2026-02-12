@@ -1,4 +1,4 @@
-[1] "Filename: sample_data.RData.genetic_feature.ptm"
+[1] "Filename: sample_data.genetic_feature.ptm"
 
 Total rows: 1000  Total genes: 10  Total sites: 100 
 
