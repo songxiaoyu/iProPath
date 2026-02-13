@@ -8,27 +8,93 @@
 
 ## Installation
 
-``` r
-install.packages("iProPath_0.1.0.tar.gz", repos = NULL, type = "source")
+Method 1 — Install from Local Source File
 
+``` r
+install.packages("iProPath_1.0.0.tar.gz", repos = NULL, type = "source")
+```
+
+Method 2 — Install from GitHub
+
+``` r
 install.packages("devtools”)
 devtools::install_github("songxiaoyu/iProPath/Rpackage")
 ```
 
 ## Example
 
-### 1. Set basic parameters
+### 1.1 Run via Terminal (Command Line)
+
+The script can be executed from the terminal using:
+
+``` bash
+Rscript run_analysis.R <file_name> <num_cores> <y_name> <x_name>
+```
+
+Arguments (fixed order):
+
+`file_name` – Name of the input data file (e.g., “sample_data”)
+
+`num_cores` – Number of CPU cores to use (e.g., 6)
+
+`y_name` – Outcome variable name (e.g., “ptm”)
+
+`x_name` – Predictor variable name (e.g., “genetic_feature”)
+
+example:
+
+``` bash
+Rscript run_analysis.R sample_data 6 ptm genetic_feature
+```
+
+``` r
+args <- commandArgs(trailingOnly = TRUE)
+
+file_name <- args[1]
+num_cores <- as.numeric(args[2])
+y_name <- args[3]
+x_name <- args[4]
+```
+
+### 1.2. Run by Manually Editing Script Arguments
+
+For interactive runs (e.g., in R Markdown or RStudio),  
+arguments can be manually specified as a vector:
+
+``` r
+# Manually define arguments (fixed order)
+args <- list(
+  "sample_data",        # file_name
+  6,                    # num_cores
+  "ptm",                # y_name
+  "genetic_feature"    # x_name
+)
+file_name <- args[[1]]
+num_cores <- as.numeric(args[[2]])
+y_name <- args[[3]]
+x_name <- args[[4]]
+```
+
+#### Load input data
 
 ``` r
 library(iProPath)
 data("sample_data")
-args <- list("sample_data", "6", "ptm", "genetic_feature" )
+data=get(file_name)
 ```
 
-### 2. Load input data
+### 2. Set basic parameters
 
 ``` r
-load(file.path("Data", paste0(file_name, ".RData")))
+x_df_list=data$x_df_list
+fixed_cov=data$fixed_cov
+mediator_list=data$mediator_list
+y_covdf_list=data$y_covdf_list
+Y_list = data$Y_list
+x_name = args[[4]]
+y_name =  args[[3]]
+num_cores = args[[2]]
+file_name = args[[1]]
 ```
 
 Loads:

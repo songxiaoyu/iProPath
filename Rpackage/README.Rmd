@@ -22,12 +22,12 @@ knitr::opts_chunk$set(
 ## Installation
 
 Method 1 — Install from Local Source File
-``` {r}
+``` {r, eval = FALSE}
 install.packages("iProPath_1.0.0.tar.gz", repos = NULL, type = "source")
 ```
 
 Method 2 — Install from GitHub
-``` {r}
+``` {r, eval = FALSE}
 install.packages("devtools”)
 devtools::install_github("songxiaoyu/iProPath/Rpackage")
 ```
@@ -38,7 +38,7 @@ devtools::install_github("songxiaoyu/iProPath/Rpackage")
 
 The script can be executed from the terminal using:
 
-```{bash}
+```{bash, eval = FALSE}
 Rscript run_analysis.R <file_name> <num_cores> <y_name> <x_name>
 ```
 
@@ -54,11 +54,11 @@ Arguments (fixed order):
 
 example:
 
-```{bash}
+```{bash, eval = FALSE}
 Rscript run_analysis.R sample_data 6 ptm genetic_feature
 ```
 
-```{r}
+```{r, eval = FALSE}
 args <- commandArgs(trailingOnly = TRUE)
 
 file_name <- args[1]
@@ -72,7 +72,7 @@ x_name <- args[4]
 For interactive runs (e.g., in R Markdown or RStudio),  
 arguments can be manually specified as a vector:
 
-```{r}
+```{r, eval = FALSE}
 # Manually define arguments (fixed order)
 args <- list(
   "sample_data",        # file_name
@@ -88,7 +88,7 @@ x_name <- args[[4]]
 
 ####  Load input data
 
-```{r}
+```{r, eval = FALSE}
 library(iProPath)
 data("sample_data")
 data=get(file_name)
@@ -96,7 +96,7 @@ data=get(file_name)
 
 ### 2. Set basic parameters
 
-```{r}
+```{r, eval = FALSE}
 x_df_list=data$x_df_list
 fixed_cov=data$fixed_cov
 mediator_list=data$mediator_list
